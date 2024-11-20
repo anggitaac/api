@@ -4,8 +4,7 @@ import numpy as np
 from PIL import Image
 import io
 from flask_cors import CORS
-import urllib.request
-
+import os
 
 app = Flask(__name__)
 CORS(app)  # Aktifkan CORS setelah app dibuat
@@ -45,4 +44,6 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Menjalankan aplikasi pada port yang ditentukan di Railway atau pada 5000 sebagai default
+    port = int(os.getenv("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
