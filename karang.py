@@ -11,7 +11,6 @@ app = Flask(__name__)
 CORS(app)  # Aktifkan CORS setelah app dibuat
 
 # Load model dengan format .keras
-model_url = "https://github.com/anggitaac/terumbukarang_api/releases/download/karang/karang.keras"
 model_path = "karang.keras"
 model = tf.keras.models.load_model(model_path)
 
